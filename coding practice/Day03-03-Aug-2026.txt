@@ -1,0 +1,104 @@
+----------------------------------------
+# LINUX command practices
+----------------------------------------
+# Absolute Path
+    An absolute path specifies the complete path from the root directory (/) to the file or directory. 
+    It does not depend on your current working directory.
+    Example
+        /Users/jeet/Documents/project/file.txt
+#Relative Path
+    A relative path specifies the location relative to your current working directory.
+
+Absolute Path	                        Relative Path
+Starts from /	                        Starts from current directory
+Always points to the same location	    Depends on where you are
+Longer	                                Shorter and more convenient
+Example: /home/user/file.txt	        Example: project/file.txt
+
+
+
+# top ⏎
+    when you use the command then it will show 
+        System uptime
+        Load average (CPU workload over 1, 5, and 15 minutes)
+        CPU usage
+        Memory (RAM) usage
+        Swap usage
+        List of running processes, including:
+            PID (Process ID)
+            User
+            CPU usage (%CPU)
+            Memory usage (%MEM)
+            Running time
+            Command
+
+# find Command
+    Syntax:->  find [path] [options] [expression] ⏎
+
+    1. Find a file by name
+        find /home -name "jeet.txt"
+    2. Find files ignoring case
+        find /home -iname "jeet.txt"
+    3. Find all .txt files
+        find . -name "*.txt"
+    4. Find directories only
+        find . -type d
+    5. Find regular files only
+        find . -type f
+    6. Find files larger than 100 MB
+        find . -size +100M
+    7. Find empty files
+        find . -type f -empty
+    8. Find files modified in the last 7 days
+        find . -mtime -7
+    9. Find and delete files
+        find . -name "*.log" -delete
+        Be careful: This permanently deletes the matching files.
+    10. Find and execute a command
+        find . -name "*.tmp" -exec rm {} \;
+        Deletes all .tmp files by running rm on each one.
+
+    find . -type f -printf "%s %p\n" | sort -nr | head -10
+
+    macOS, which uses the BSD find command. The -printf option is a GNU find feature and is not supported on macOS, which is why you see:
+
+    find . -type f -exec stat -f "%z %N" {} \; | sort -nr | head -10
+    
+    Explanation
+        find . → Search from the current directory (.).
+        -type f → Find only regular files.
+        -printf "%s %p\n" →
+        %s → File size in bytes.
+        %p → File path.
+        \n → New line.
+        sort -nr →
+        -n → Sort numerically.
+        -r → Reverse order (largest first).
+        head -10 → Display the first 10 results (the 10 largest files).
+
+    GNU and BSD are two different families of Unix software
+        GNU
+            GNU stands for GNU's Not Unix.
+            It is a free software project started by Richard Stallman in 1983.
+            Most Linux distributions (Ubuntu, Debian, Fedora, CentOS, etc.) use GNU utilities by default.
+            GNU tools typically have more features and support many long options.
+
+            Example (GNU find on Linux):
+
+            find . -type f -printf "%s %p\n"
+
+            Here, -printf is a GNU-specific feature.
+
+        BSD
+            BSD stands for Berkeley Software Distribution.
+            It originated from the Unix work done at the University of California, Berkeley.
+            Operating systems like FreeBSD, OpenBSD, and NetBSD use BSD utilities.
+            macOS is based on BSD (along with components from other systems), so many of its command-line tools are BSD versions.
+
+            Example (BSD find on macOS):
+
+            find . -type f -exec stat -f "%z %N" {} \;
+
+            The BSD version does not support -printf.
+        Why does this matter?
+            If you copy a command from a Linux tutorial to macOS, it may fail because macOS is using the BSD implementation.
