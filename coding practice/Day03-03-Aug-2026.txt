@@ -36,33 +36,33 @@ Example: /home/user/file.txt	        Example: project/file.txt
     Syntax:->  find [path] [options] [expression] ⏎
 
     1. Find a file by name
-        find /home -name "jeet.txt"
+        find /home -name "jeet.txt"  ⏎
     2. Find files ignoring case
-        find /home -iname "jeet.txt"
+        find /home -iname "jeet.txt"    ⏎
     3. Find all .txt files
-        find . -name "*.txt"
+        find . -name "*.txt"    ⏎
     4. Find directories only
-        find . -type d
+        find . -type d      ⏎
     5. Find regular files only
-        find . -type f
+        find . -type f  ⏎
     6. Find files larger than 100 MB
-        find . -size +100M
+        find . -size +100M  ⏎
     7. Find empty files
-        find . -type f -empty
+        find . -type f -empty   ⏎
     8. Find files modified in the last 7 days
-        find . -mtime -7
+        find . -mtime -7    ⏎
     9. Find and delete files
-        find . -name "*.log" -delete
+        find . -name "*.log" -delete    ⏎
         Be careful: This permanently deletes the matching files.
     10. Find and execute a command
-        find . -name "*.tmp" -exec rm {} \;
+        find . -name "*.tmp" -exec rm {} \; ⏎
         Deletes all .tmp files by running rm on each one.
 
-    find . -type f -printf "%s %p\n" | sort -nr | head -10
+    find . -type f -printf "%s %p\n" | sort -nr | head -10  ⏎
 
     macOS, which uses the BSD find command. The -printf option is a GNU find feature and is not supported on macOS, which is why you see:
 
-    find . -type f -exec stat -f "%z %N" {} \; | sort -nr | head -10
+    find . -type f -exec stat -f "%z %N" {} \; | sort -nr | head -10    ⏎
     
     Explanation
         find . → Search from the current directory (.).
@@ -85,7 +85,7 @@ Example: /home/user/file.txt	        Example: project/file.txt
 
             Example (GNU find on Linux):
 
-            find . -type f -printf "%s %p\n"
+            find . -type f -printf "%s %p\n"    ⏎
 
             Here, -printf is a GNU-specific feature.
 
@@ -97,7 +97,7 @@ Example: /home/user/file.txt	        Example: project/file.txt
 
             Example (BSD find on macOS):
 
-            find . -type f -exec stat -f "%z %N" {} \;
+            find . -type f -exec stat -f "%z %N" {} \;  ⏎
 
             The BSD version does not support -printf.
         Why does this matter?
