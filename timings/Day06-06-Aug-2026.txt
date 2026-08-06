@@ -1,0 +1,7 @@
+----------------------------------------
+# What I did today
+----------------------------------------
+
+# 2 hours git 
+# 1 hours  AWS EC2 instance inbound and security group
+# 30 mins coding typeing 
