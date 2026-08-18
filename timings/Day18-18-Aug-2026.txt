@@ -1,0 +1,9 @@
+----------------------------------------
+# What I did today
+----------------------------------------
+
+# 20 mins LINUX command practices
+# 30 mins coding typeing
+# 10 min Docker 
+# 3 hrs AWS 
+# 3 hrs Kubernetes 
