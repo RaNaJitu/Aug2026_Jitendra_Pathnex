@@ -1,0 +1,11 @@
+----------------------------------------
+# What I did today
+----------------------------------------
+
+# 20 mins LINUX command practices
+# 30 mins coding typeing
+# 10 min Docker 
+# 2 hrs AWS 
+# 4 hrs Kubernetes 
+# 30 mins Helm 
+# 30 mins Argo-CD 
